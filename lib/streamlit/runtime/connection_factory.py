@@ -27,6 +27,7 @@ from streamlit.connections import (
     SnowflakeConnection,
     SnowparkConnection,
     SQLConnection,
+    SupabaseConnection,
 )
 from streamlit.deprecation_util import deprecate_obj_name
 from streamlit.errors import StreamlitAPIException
@@ -43,6 +44,7 @@ FIRST_PARTY_CONNECTIONS = {
     "snowflake": SnowflakeConnection,
     "snowpark": SnowparkConnection,
     "sql": SQLConnection,
+    "supabase": SupabaseConnection,
 }
 MODULE_EXTRACTION_REGEX = re.compile(r"No module named \'(.+)\'")
 MODULES_TO_PYPI_PACKAGES: Final[Dict[str, str]] = {
@@ -52,6 +54,7 @@ MODULES_TO_PYPI_PACKAGES: Final[Dict[str, str]] = {
     "snowflake": "snowflake-connector-python",
     "snowflake.connector": "snowflake-connector-python",
     "snowflake.snowpark": "snowflake-snowpark-python",
+    "supabase": "supabase",
 }
 
 # The BaseConnection bound is parameterized to `Any` below as subclasses of

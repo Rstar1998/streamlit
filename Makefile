@@ -19,7 +19,7 @@ SHELL=/bin/bash
 INSTALL_DEV_REQS ?= true
 INSTALL_TEST_REQS ?= true
 USE_CONSTRAINTS_FILE ?= true
-PYTHON_VERSION := $(shell python --version | cut -d " " -f 2 | cut -d "." -f 1-2)
+PYTHON_VERSION := $(shell python3 --version | cut -d " " -f 2 | cut -d "." -f 1-2)
 GITHUB_REPOSITORY ?= streamlit/streamlit
 CONSTRAINTS_BRANCH ?= constraints-develop
 CONSTRAINTS_URL ?= https://raw.githubusercontent.com/${GITHUB_REPOSITORY}/${CONSTRAINTS_BRANCH}/constraints-${PYTHON_VERSION}.txt
@@ -73,7 +73,7 @@ frontend: react-build
 .PHONY: install
 # Install Streamlit into your Python environment.
 install:
-	cd lib ; python setup.py install
+	cd lib ; python3 setup.py install
 
 .PHONY: develop
 # Install Streamlit as links in your Python environment, pointing to local workspace.
@@ -115,7 +115,7 @@ python-init:
 	echo "Running command: pip install $${pip_args[@]}";\
 	pip install $${pip_args[@]};
 	if [ "${INSTALL_TEST_REQS}" = "true" ] ; then\
-		python -m playwright install --with-deps; \
+		python3 -m playwright install --with-deps; \
 	fi;\
 
 .PHONY: pylint

@@ -16,6 +16,7 @@ from streamlit.connections.base_connection import BaseConnection
 from streamlit.connections.snowflake_connection import SnowflakeConnection
 from streamlit.connections.snowpark_connection import SnowparkConnection
 from streamlit.connections.sql_connection import SQLConnection
+from streamlit.connections.supabase_connection import SupabaseConnection
 
 ExperimentalBaseConnection = BaseConnection
 
@@ -25,4 +26,5 @@ __all__ = [
     "SnowparkConnection",
     "SQLConnection",
     "ExperimentalBaseConnection",
+    "SupabaseConnection",
 ]

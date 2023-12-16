@@ -60,6 +60,7 @@ INSTALL_REQUIRES = [
     # Don't require watchdog on MacOS, since it'll fail without xcode tools.
     # Without watchdog, we fallback to a polling file watcher to check for app changes.
     "watchdog>=2.1.5; platform_system != 'Darwin'",
+    "supabase==2.3.0",
 ]
 
 # We want to exclude some dependencies in our internal Snowpark conda distribution of
@@ -81,7 +82,8 @@ EXTRA_REQUIRES = {
     "snowflake": [
         "snowflake-snowpark-python>=0.9.0; python_version=='3.8'",
         "snowflake-connector-python>=2.8.0; python_version=='3.8'",
-    ]
+    ],
+    "supabase": ["supabase==2.3.0"],
 }
 
 
