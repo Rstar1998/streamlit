@@ -52,8 +52,10 @@ class SupabaseConnection(BaseConnection):
         """Run a read-only SQL query.
         Parameters
         ----------
-        sql : str
-            The read-only SQL query to execute.
+        table_name : str
+            The table name which needs to be retrieved
+        colume_list : str
+            List of columns , * for all columns
 
         Returns
         -------
@@ -62,8 +64,10 @@ class SupabaseConnection(BaseConnection):
         Example
         -------
         >>> import streamlit as st
-        >>> conn = st.experimental_connection(name="bigquery", type="bigquery",from_service_account_path="service_account.json")
-        >>> df = conn.query("SELECT * FROM `bigquery-public-data.covid19_italy.data_by_province` LIMIT 20")
+        >>> conn=st.connection(name='supabase',project_url=project_url,api_key=api_key)
+        >>> df=conn.query(table_name="covidcases",colume_list="*")
+
+
 
         """
         response = self.client.table(table_name).select(colume_list).execute()
